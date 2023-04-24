@@ -67,16 +67,25 @@ function addTask() {
     titleEntry.textContent = title;
     titleContainer.appendChild(titleEntry);
 
+    const functionalContainer = document.createElement('div');
+    functionalContainer.classList.add('funcitional-container');
+    const dueDateLabel = document.createElement('label');
+    dueDateLabel.textContent = "Due Date: " 
+    const dueDateEntry = document.createElement('input');
+    dueDateEntry.type = 'date';
+    functionalContainer.appendChild(dueDateLabel);
+    functionalContainer.appendChild(dueDateEntry);
+    titleContainer.appendChild(functionalContainer);
+
     const btnContainer = document.createElement('span');
     btnContainer.classList.add('button-container');
-    titleContainer.appendChild(btnContainer);
-
     const editBtn = document.createElement('button');
     editBtn.classList.add('edit-button');
     editBtn.textContent = "Edit";
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('delete-button');
     deleteBtn.textContent = "Delete";
+    functionalContainer.appendChild(btnContainer);
     btnContainer.appendChild(editBtn);
     btnContainer.appendChild(deleteBtn);
 
@@ -110,22 +119,26 @@ function revertBtnOnSubmit() {
 function editTask() {
     let editBtn = document.querySelector('.edit-button');
     editBtn.addEventListener('click', function() {
+        document.querySelector('.title-entry').contentEditable = true;
         document.querySelector('.description-entry').contentEditable = true;
         editBtn.textContent = "Done";
 
-        if (document.querySelector('.description-entry').contentEditable = true) {
+        if ((document.querySelector('.title-entry').contentEditable = true) && (document.querySelector('.description-entry').contentEditable = true)) {
             editBtn.addEventListener('click', function() {
+                document.querySelector('.title-entry').contentEditable = false;
                 document.querySelector('.description-entry').contentEditable = false;
                 editBtn.textContent = "Edit";
             });
         }
 
-        else if (document.querySelector('.description-entry').contentEditable = false) {
+        else if ((document.querySelector('.title-entry').contentEditable = false) && (document.querySelector('.description-entry').contentEditable = false)) {
             editBtn.addEventListener('click', function() {
+                document.querySelector('.title-entry').contentEditable = true;
                 document.querySelector('.description-entry').contentEditable = true;
                 editBtn.textContent = "Done";
             });
         }
+
     });
 }
 
