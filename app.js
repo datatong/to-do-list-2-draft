@@ -110,19 +110,19 @@ function revertBtnOnSubmit() {
 function editTask() {
     let editBtn = document.querySelector('.edit-button');
     editBtn.addEventListener('click', function() {
-        document.querySelector('.description-entry').contentEditable = 'true';
+        document.querySelector('.description-entry').contentEditable = true;
         editBtn.textContent = "Done";
 
-        if (document.querySelector('.description-entry').contentEditable = 'true') {
+        if (document.querySelector('.description-entry').contentEditable = true) {
             editBtn.addEventListener('click', function() {
-                document.querySelector('.description-entry').contentEditable = 'false';
+                document.querySelector('.description-entry').contentEditable = false;
                 editBtn.textContent = "Edit";
             });
         }
 
-        else if (document.querySelector('.description-entry').contentEditable = 'false') {
+        else if (document.querySelector('.description-entry').contentEditable = false) {
             editBtn.addEventListener('click', function() {
-                document.querySelector('.description-entry').contentEditable = 'True';
+                document.querySelector('.description-entry').contentEditable = true;
                 editBtn.textContent = "Done";
             });
         }
