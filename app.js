@@ -60,10 +60,16 @@ function addTask() {
     const taskEntry = document.createElement('div');
     taskEntry.classList.add('task-entry');
 
+    let titleContainer = document.createElement('div');
+    titleContainer.classList.add('title-container');
     let titleEntry = document.createElement('span');
     titleEntry.classList.add('title-entry');
     titleEntry.textContent = title;
+    titleContainer.appendChild(titleEntry);
 
+    const btnContainer = document.createElement('span');
+    btnContainer.classList.add('button-container');
+    titleContainer.appendChild(btnContainer);
 
     const editBtn = document.createElement('button');
     editBtn.classList.add('edit-button');
@@ -71,15 +77,15 @@ function addTask() {
     const deleteBtn = document.createElement('button');
     deleteBtn.classList.add('delete-button');
     deleteBtn.textContent = "Delete";
+    btnContainer.appendChild(editBtn);
+    btnContainer.appendChild(deleteBtn);
 
     let descEntry = document.createElement('div');
     descEntry.classList.add('description-entry');
     descEntry.textContent = description;
 
     toDoList.appendChild(taskEntry);
-    taskEntry.appendChild(titleEntry);
-    taskEntry.appendChild(editBtn);
-    taskEntry.appendChild(deleteBtn);
+    taskEntry.appendChild(titleContainer);
     taskEntry.appendChild(descEntry);
 
     const deleteTask = (function(){
