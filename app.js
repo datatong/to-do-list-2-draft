@@ -49,9 +49,8 @@ function openForm() {
             console.log(newToDoItem);
             console.log(toDoArray);
             
-            addTask();
-            createText();
-            revertBtnOnSubmit();
+        addTask();
+        revertBtnOnSubmit();
         };
     })
 }
@@ -63,6 +62,8 @@ function addTask() {
 
     let titleEntry = document.createElement('span');
     titleEntry.classList.add('title-entry');
+    titleEntry.textContent = title;
+
 
     const editBtn = document.createElement('button');
     editBtn.classList.add('edit-button');
@@ -73,6 +74,7 @@ function addTask() {
 
     let descEntry = document.createElement('div');
     descEntry.classList.add('description-entry');
+    descEntry.textContent = description;
 
     toDoList.appendChild(taskEntry);
     taskEntry.appendChild(titleEntry);
@@ -93,18 +95,9 @@ function addTask() {
         //function submitEdit()
 }
 
-//entry elements to be assigned from the object properties
-function createText() {
-    let titleEntry = document.querySelector('.title-entry');
-    titleEntry.textContent = title;
-
-    let descEntry = document.querySelector('.description-entry');
-    descEntry.textContent = description;
-}
-
 //FUNCTIONS//
 function revertBtnOnSubmit() {
-    form.style.display = 'none';
+    form.remove();
     document.querySelector('#add-task-button').style.display = 'initial';
 }
 
