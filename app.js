@@ -105,6 +105,8 @@ function addTask() {
         }
     })();
 
+    document.querySelector('.title-entry').contentEditable = false;
+    document.querySelector('.description-entry').contentEditable = false;
     editTask();
 
         //function submitEdit() if we open an edit form
@@ -117,28 +119,17 @@ function revertBtnOnSubmit() {
 }
 
 function editTask() {
-    let editBtn = document.querySelector('.edit-button');
+    let editBtn = document.querySelector('.edit-button');    
     editBtn.addEventListener('click', function() {
-        document.querySelector('.title-entry').contentEditable = true;
-        document.querySelector('.description-entry').contentEditable = true;
-        editBtn.textContent = "Done";
-
-        if ((document.querySelector('.title-entry').contentEditable = true) && (document.querySelector('.description-entry').contentEditable = true)) {
-            editBtn.addEventListener('click', function() {
-                document.querySelector('.title-entry').contentEditable = false;
-                document.querySelector('.description-entry').contentEditable = false;
-                editBtn.textContent = "Edit";
-            });
-        }
-
-        else if ((document.querySelector('.title-entry').contentEditable = false) && (document.querySelector('.description-entry').contentEditable = false)) {
-            editBtn.addEventListener('click', function() {
+        if ((document.querySelector('.title-entry').contentEditable = false) && (document.querySelector('.description-entry').contentEditable = false)) {
                 document.querySelector('.title-entry').contentEditable = true;
                 document.querySelector('.description-entry').contentEditable = true;
                 editBtn.textContent = "Done";
-            });
+        } else {
+                document.querySelector('.title-entry').contentEditable = false;
+                document.querySelector('.description-entry').contentEditable = false;
+                editBtn.textContent = "Edit";
         }
-
     });
 }
 
